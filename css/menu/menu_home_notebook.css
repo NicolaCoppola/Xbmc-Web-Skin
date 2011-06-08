@@ -1,0 +1,57 @@
+/*----------------------------------------
+				
+Safari XBMC Remote : 
+				
+----------------------------------------*/
+#menu_home {
+
+width:75%;
+list-style:none;
+margin-top:80px;
+font:Verdana, Arial, Helvetica, sans-serif;
+
+}
+
+
+#menu_home a{
+list-style:none;
+display:block;
+line-height:60px;
+text-decoration:none;
+text-align:right;
+color:#333333;
+
+
+font-size:22px;
+vertical-align: text-bottom;
+font-weight: bold;
+		
+		
+}		
+
+#menu_home a:hover{
+
+
+text-align:right;
+color:#FFFFFF;
+
+font-size:42px;
+vertical-align: text-bottom;
+font-weight: bold;
+
+
+}
+
+#menu_home .select{
+
+
+text-align:right;
+table-layout:auto;
+color:#FFFFFF;
+
+font-size:34px;
+vertical-align: text-bottom;
+font-weight: bold;
+
+
+}

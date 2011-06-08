@@ -1,0 +1,1 @@
+<?php $lingua="English"; ?>

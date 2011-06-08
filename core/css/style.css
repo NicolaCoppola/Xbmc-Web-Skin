@@ -1,0 +1,116 @@
+
+#sfoglia_file_menu{
+margin: 0;
+padding-left:25px;
+padding-top:25px;
+width:100%;
+height:auto;
+}
+
+#info_file {
+
+width:95%;
+height:40px;
+border-bottom:solid;
+border-bottom-width:1px;
+border-bottom-color:#333;
+line-height:40px;
+font-size:18px;
+color:#1E90FF;
+
+}
+
+#info_file a{
+
+color:#666;
+text-decoration: none;
+border:none;
+display:block;
+
+}
+
+#info_file a:hover{
+color:#FFF;
+background-image:url(sfondo_file.png);
+background-position:right;
+}
+
+#info_file img{
+
+text-decoration: none;
+border:none;
+margin-top:5px;
+
+}
+
+#info_file #playlist {
+position:relative;
+margin-right:120px;
+margin-top:-40px;
+float:right;
+
+}
+
+#info_file #playlist a:hover{
+color:#FFF;
+background-image:url();
+background-position:right;
+
+}
+
+
+#info_file #type {
+position:relative;
+margin-right:75px;
+margin-top:-40px;
+float:right;
+
+}
+
+#info_file #type a:hover{
+color:#FFF;
+background-image:url();
+background-position:right;
+
+}
+
+/* FILM  */
+
+#info_file #trama a{
+
+position:relative;
+margin-right:40px;
+margin-left:32px;
+margin-top:0px;
+float:right;
+right:0px;
+color:#FFF;
+font-size:16px;
+border-bottom:solid;
+border-bottom-width:0px;
+border-bottom-color:#333;
+
+}
+
+#info_file #trama a:hover{
+
+position:relative;
+margin-right:40px;
+margin-left:32px;
+margin-top:0px;
+float:right;
+right:0px;
+background-image:none;
+background-position:right;
+
+
+}
+
+#info_file #titolo{
+
+color:#FFF;
+font-size:26px;
+margin-left:-16px;
+
+}
+

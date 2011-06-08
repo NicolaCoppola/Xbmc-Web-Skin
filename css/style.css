@@ -1,0 +1,611 @@
+/*----------------------------------------
+				
+Safari XBMC Remote : 
+				
+----------------------------------------*/
+html {
+overflow-y: hidden;
+}
+
+
+body{ 
+
+	margin : 0;
+	padding : 0;
+	text-decoration:none;
+	background-image:url(img/bg.jpeg);
+	background-position:center;
+	background-position:top;
+	background-color:#333333;
+	text-decoration:none;
+	border:none;
+	outline:none;
+	font-family:Arial, Helvetica, sans-serif;
+	
+
+    
+}
+
+
+#xbmcremotesite {
+
+	max-width:1980px;
+	min-width:600px;
+	max-height:1080px;
+	min-height:400px;
+
+}
+
+/*----------------------------------------
+				
+Safari XBMC Remote : parte menu sito
+				
+----------------------------------------*/
+
+#logo {
+	position:fixed;
+	top:15px;
+	left:10px;
+	width:130px;
+	height:43px;
+	z-index:9999;
+	background-image:url(img/logo.png);
+	display:none;
+
+}
+
+
+#alto {
+	position:fixed;
+	top:0px;
+	right:0px;
+	width:510px;
+	height:35px;
+	z-index:9999;
+	background-position:left;
+	background-image:url(img/sfondo_barra_alta.png);
+	display:none;
+
+}
+
+	#info_tempo {
+		position:relative;
+		float:left;
+		width:150px;
+	
+	}
+	
+	#info_tempo li{
+		list-style:none;
+		margin-left:50px;
+		color:#FFFFFF;
+		font-size:20px;
+		margin-top:-23px;
+		margin-left:80px;
+		
+		
+	}
+	#info_tempo img{
+		width:30px;
+		height:25px;
+		margin-top:3px;
+		margin-left:40px;
+		
+		
+	}
+
+			#info_data {
+				position:relative;
+				float:right;
+				text-align:left;
+				margin-top:4px;
+				margin-right:15px;
+			
+			}
+			
+			#info_data li {
+				color:#FFF;
+				font-size:20px;
+				text-align:left;
+				list-style:none;
+				
+			}
+			
+			#info_data span{
+				color:#FFFFFF;
+				font-size:22px;
+				text-align:left;
+				list-style:none;
+				font-weight:bold;
+				
+			}
+
+
+#menu_laterale {
+	position:fixed;
+	top:0px;
+	left:0px;
+	width:30%;
+	height:100%;
+	z-index:9997;
+	background-image:url(img/sfondo_barra_laterale.png);
+	background-position:right;
+	background-repeat:repeat-y;
+	display:none;
+
+}
+
+#basso {
+	position:fixed;
+	bottom:0px;
+	right:0px;
+	width:67%;
+	height:35px;
+	z-index:9999;
+	background-position:left;
+	background-image:url(img/sfondo_barra_bassa.png);
+	display:none;
+
+}
+
+/*----------------------------------------
+				
+Safari XBMC Remote : parte sfoglia elementi 
+				
+----------------------------------------*/
+
+
+#sfoglia_alto {
+	position:fixed;
+	top:0px;;
+	left:0px;;
+	width:8%;
+	height:35px;;
+	z-index:999;
+	background-position:right;
+	background-image:url(img/sfondo_barra_alta_back.png);
+	display:none;
+
+}
+
+#sfoglia_ora {
+	position:fixed;
+	top:0px;
+	right:0px;
+	width:110px;
+	height:35px;
+	z-index:9999;
+	background-position:left;
+	background-image:url(img/sfondo_barra_alta.png);
+	display:none;
+	
+}
+
+	#sfoglia_ora li {
+		color:#FFF;
+		font-size:20px;
+		text-align:left;
+		list-style:none;
+		margin-top:4px;
+		margin-left:38px;
+	}
+				
+		#sfoglia_ora span{
+			color:#FFFFFF;
+			font-size:22px;
+			text-align:left;
+			list-style:none;
+			font-weight:bold;
+						
+		}
+
+
+
+#sfoglia_alto img {
+	margin-left:15px;
+	margin-top:5px;
+	width:24px;
+	height:24px;
+	text-decoration:none;
+	border:none;
+	outline:none;
+}
+
+
+
+#sfoglia {
+	position:fixed;
+	top:10%;
+	left:10%;
+	width:60%;
+	height:80%;
+	z-index:9998;
+	background-position:left;
+	background-image:url(img/bg_sfoglia.png);
+	display:none;
+    border-radius: 15px;
+}
+
+
+	ul#sfogli_file, ul#sfogli_file li{
+	
+		padding: 0;
+		list-style: none;
+	}
+	ul#sfogli_file{
+	
+		width: 98%;
+		font-size: 18px;
+		line-height:40px;
+	
+	
+	}
+	
+	ul#sfogli_file a{
+	
+		border-bottom-style:solid;
+		border-bottom-color:#333;
+		border-width:1px;
+		display: block;
+		text-decoration: none;
+		margin-left:15px;
+	
+	
+	}
+	ul#sfogli_file strong{
+		margin-left:15px;
+		color: #666;
+	
+	
+	}
+	ul#sfogli_file a:hover{
+		display: block;
+		background-image:url(img/sfondo_file.png);
+		background-position:right;
+	
+	}
+	ul#sfogli_file a:hover strong{
+		color:#FFFFFF;
+	}
+
+
+
+
+
+
+
+#img_sfoglia {
+	position:fixed;
+	bottom:12%;
+	right:5%;
+	width:20%;
+	height:25%;
+	z-index:9998;
+	background-position:left;
+	background-image:url(img/bg_sfoglia.png);
+	display:none;
+	border-style: solid; 
+    	border-width: 5px;
+    	border-color: transparent ;
+	border-color: #FFF;
+    border-radius: 15px;
+    
+}
+
+#sfondo_sfoglia {
+
+   	position:fixed;
+	bottom:0px;;
+	left:0px;;
+	width:100%;
+	height:16%;
+   	z-index:9997;
+	background-image:url(img/bg_sfoglia_basso.png);
+	background-position:top;
+	background-repeat:repeat-x;
+	display:none;
+    
+
+
+}
+
+#menu_laterale_info {
+	position:fixed;
+	top:0px;
+	right:0px;
+	width:70%;
+	height:100%;
+	z-index:9999;
+	background-image:url(img/sfondo_barra_info.png);
+	background-position:left;
+	background-repeat:repeat-y;
+	display:none;
+
+}
+
+#menu_laterale_info_chiudi {
+	position:fixed;
+	top:7%;
+	right:70%;
+	width:40px;
+	height:100px;
+	z-index:9999;
+    display:none;
+}
+
+/*----------------------------------------
+				
+Safari XBMC Remote : parte Remote Control 
+				
+----------------------------------------*/
+
+#remote_control {
+
+   	position:fixed;
+    display:none;
+	bottom:300px;
+	right:20px;
+	width:520px;
+	height:50px;
+    z-index:9999;
+	background-image:url(img/bg_sfoglia.png);
+	border: inset 3px transparent;
+	border-color: white;
+	filter: chroma(color= white);
+    border-radius: 10px;
+    padding-top:10px;
+
+}
+
+#remote_control2 {
+
+    position:fixed;
+	bottom:4%;
+	right:5%;
+	width:20%;
+    display:none;
+	height:50px;
+    z-index:9999;
+	padding-top:10px;
+
+}
+
+#volume_control {
+
+   	position:fixed;
+    display:none;
+	bottom:370px;
+	right:20px;
+	width:520px;
+	height:50px;
+    z-index:9999;
+	background-image:url(img/bg_sfoglia.png);
+	border: inset 3px transparent;
+	border-color: white;
+	filter: chroma(color= white);
+    border-radius: 10px;
+    padding-top:10px;
+
+}
+
+
+/*----------------------------------------
+				
+Safari XBMC Remote : parte play info 
+				
+----------------------------------------*/
+
+#info_play {
+
+   	position:fixed;
+	bottom:80px;;
+	right:20px;;
+	width:520px;
+	height:200px;
+    z-index:9999;
+	background-image:url(img/bg_sfoglia.png);
+	display:none;
+	border: inset 3px transparent;
+	border-color: white;
+	filter: chroma(color= white);
+    border-radius: 15px;
+
+}
+
+#info_text {
+
+    position:relative;
+	float:left;
+	width:65%;
+	margin-left:10px;
+	margin-top:24px;
+	line-height:29px;
+	
+
+}
+
+#info_text li{
+	text-align:right;
+	color:#FFFFFF;
+	list-style:none;
+	text-decoration:none;
+	
+}
+
+#info_text .riproduzione{
+	color:#0066FF;
+	font-size:20px;
+
+}
+
+#info_text .album{
+	color:#FFF;
+	font-size:12px;
+
+}
+
+#info_text .artista{
+	color:#FFF;
+	font-size:12px;
+
+}
+
+#info_text .canzone{
+	color:#FFF;
+	font-size:12px;
+   
+}
+
+#info_text .tempo{
+	color:#FFF;
+	font-size:14px;
+
+}
+
+
+#info_image {
+
+	position:relative;
+	float:right;
+	margin-right:30px;
+	margin-top:35px;
+	
+
+}
+
+#info_image img{
+	
+	text-align:center;
+	width:120px;
+	height:120px;
+	text-decoration:none;
+	border:none;
+	outline:none;
+	
+
+}
+li.Filename  {
+display:none;
+
+}
+
+li.Studio  {
+display:none;
+
+}
+
+li.Director  {
+display:none;
+
+}
+
+li.Writer {
+display:none;
+
+}
+
+li.Plotoutline {
+display:none;
+
+}
+
+li.Plot {
+display:none;
+
+}
+
+li.Rating {
+
+display:none;
+
+}
+
+li.start_file {
+display:none;
+
+}
+
+li.PlayStatus {
+display:none;
+
+}
+
+li.SongNo {
+display:none;
+
+}
+
+li.Type {
+display:none;
+
+}
+
+li.Title {
+display:none;
+
+}
+
+li.Track {
+display:none;
+
+}
+
+li.Genre {
+display:none;
+
+}
+
+li.Year {
+display:none;
+
+}
+
+li.URL {
+display:none;
+
+}
+
+li.Lyrics {
+display:none;
+
+}
+
+li.Bitrate {
+display:none;
+
+}
+
+li.Samplerate {
+display:none;
+
+}
+
+li.Thumb {
+display:none;
+
+}
+
+li.Time {
+display:none;
+
+}
+
+li.Duration {
+display:none;
+
+}
+
+li.Percentage {
+display:none;
+
+}
+
+li.Changed {
+display:none;
+
+}
+
+li.File_size {
+display:none;
+
+}
