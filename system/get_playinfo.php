@@ -1,28 +1,68 @@
 <?php 
-include('../core/config_freamwork.php');
-//include('core/config_freamwork.php');
 
-// Function to check response time
-function pingDomain($domain){
-    $starttime = microtime(true);
-    $file      = fsockopen ($domain, 80, $errno, $errstr, 10);
-    $stoptime  = microtime(true);
-    $status    = 0;
+// Fix Bug Ip 
 
-    if (!$file) $status = -1;  // Site is down
-    else {
-        fclose($file);
-        $status = ($stoptime - $starttime) * 1000;
-        $status = floor($status);
-    }
-    return $status;
+if (file_exists('../core/host_setting.php')) {
+	
+		include('../core/host_setting.php');
+		
+		
+		if ( $host_port != NULL ){
+		
+				$http_ip      = ''.$host_name.':'.$host_port.''; 
+		
+		}else{
+		
+				$http_ip      = $host_name;
+		
+		}
+		
+		
+		$hostjsonrpc  = "$http_ip/jsonrpc";
+		$host_http    = "http://$http_ip/";
+		$host         = "$http_ip/";
+		$host_img     = "$http_ip/vfs";
+		$username     = $host_user;
+		$password     = $host_pass;
+		
+		
+		
+		// control of status 
+		
+		
+
+			// 1 : imposto i dati per il curl della pagina che contiene i dati 
+			$curl_handle=curl_init();
+			curl_setopt($curl_handle,CURLOPT_URL,$hostjsonrpc);
+			
+			
+			curl_setopt($curl_handle,CURLOPT_USERPWD,"$username:$password"); 
+			curl_setopt($curl_handle,CURLOPT_CONNECTTIMEOUT,2);
+			curl_setopt($curl_handle,CURLOPT_RETURNTRANSFER,1);
+			
+			// 2 : Effettuo il download della pagina 
+			$risultato_curl = curl_exec($curl_handle);
+			
+			// Chiudo il download 
+			curl_close($curl_handle);
+			
+			if ($risultato_curl != NULL ){ $host_status = 1;  };
+
+
+}else{
+
+		$host         = "Please set your ip";
+		$host_status = 0;
+
 }
 
-$domainbase = str_replace("http://","",strtolower($host));
-        
-        $status = pingDomain($domainbase);
-        if ($status != -1) $host_status = 1;
-        else               $host_status = 0;
+//echo $hostjsonrpc ;
+
+
+//include('core/config_freamwork.php');
+
+
+ 
 
 
 
