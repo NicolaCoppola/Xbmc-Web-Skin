@@ -1,1 +1,0 @@
-- -i postino.avi -f mp4 -vcodec copy -acodec copy output.mp4
