@@ -91,6 +91,7 @@ $t_indietro             ="Indietro ..";
 		$t_stagione_videos   ="Stagione";
 		$t_regista_videos  	 ="Regista";
 		$t_genere_videos   	 ="Genere";
+		$t_anno_videos		 ="Anno";
 
 	// menu System page section 
 	$t_sistem      			="Impostazioni";
