@@ -90,7 +90,7 @@ $t_indietro             = "Voltar...";
 		$t_stagione_videos   ="Temporada";
 		$t_regista_videos  	 ="Diretor";
 		$t_genere_videos   	 ="G&ecirc;nero";
-		$t_anno_videos		 ="Ano"
+		$t_anno_videos		 ="Ano";
 		
 		
 		
