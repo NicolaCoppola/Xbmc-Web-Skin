@@ -90,7 +90,7 @@ $t_indietro             		="Retour ..";
         $t_stagione_videos      ="Saisons";
         $t_regista_videos       ="Directeur"; 
         $t_genere_videos        ="Genre"; 
-         
+		$t_anno_videos		 	="Ann&eacute;e";
          
          
      

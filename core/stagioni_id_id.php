@@ -13,8 +13,8 @@
 // Carico tutt i file php Richiesti 
 require('config_freamwork.php');
 require('json_call.php');
+global $json;
 ?>
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -27,30 +27,21 @@ require('json_call.php');
 <body>
 
 <?php 
-
 include('function/scroll.php');
-
 require('lingua_setting.php');
-
 require ('../language/'.$lingua.'/'.$lingua.'.php');
-
 ?>
 
 <div id="sfoglia_file_menu">
-	
-	
 	<div id="info_file">
-				
-					<div id="title"   >
-					<a href="stagioni_id.php?season=<?php echo $_GET['episodes'] ; ?>" 
-					onMouseOver="window.parent.document.getElementById('img_cambia').src=('core/img/back.png');" 
-					onMouseOut="window.parent.document.getElementById('img_cambia').src=('core/img/xbmc.png');">&ensp;&ensp;&ensp; <?php echo $t_stagionitv  ; ?> 
-					
-					</a></div> 
-					
-					<div id="playlist"><a href="stagioni_id.php?season=<?php echo $_GET['episodes'] ; ?>" ></a></div>
-					<div id="type"    ><a href="stagioni_id.php?season=<?php echo $_GET['episodes'] ; ?>" ><img src="img/back.png" width="28" height="28"/></a></div>
-					
+		<div id="title"   >
+			<a href="stagioni_id.php?season=<?php echo $_GET['episodes'] ; ?>" 
+			onMouseOver="window.parent.document.getElementById('img_cambia').src=('core/img/back.png');" 
+			onMouseOut="window.parent.document.getElementById('img_cambia').src=('core/img/xbmc.png');">&ensp;&ensp;&ensp; <?php echo $t_stagionitv  ; ?> 
+			</a>
+		</div> 
+		<div id="playlist"><a href="stagioni_id.php?season=<?php echo $_GET['episodes'] ; ?>" ></a></div>
+		<div id="type"    ><a href="stagioni_id.php?season=<?php echo $_GET['episodes'] ; ?>" ><img src="img/back.png" width="28" height="28"/></a></div>
 	</div>
 	
 	<?php
@@ -70,7 +61,7 @@ require ('../language/'.$lingua.'/'.$lingua.'.php');
 				
 				$img_thumb         = '<img src="http://'.$host_img.'/'.$value['thumbnail'].'" width="28" height="28" />';
 				$img_thumb_cambia  = 'http://'.$host_img.'/'.$value['thumbnail'].'';
-				$img_sfondo_cambia = $_GET['fanart'];
+				$img_sfondo_cambia = (isset($_GET['fanart']))?$_GET['fanart']:'';
 				
 			}else{
 				
