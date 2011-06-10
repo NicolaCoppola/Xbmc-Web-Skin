@@ -68,11 +68,11 @@ require ('../language/'.$lingua.'/'.$lingua.'.php');
 		// vostro codice 
 		//echo '<li class="cat"><a href="stagioni_id_id.php?season='.$value['season'].'&episodes='.$_GET['season'].'">'.$value['label'].'</a></li>';
 		
-		if (preg_match("/^special/", $value['thumbnail']) or preg_match("/^images/", $value['thumbnail'])) {				
+		if (isset($value['thumbnail']) && (preg_match("/^special/", $value['thumbnail']) or preg_match("/^images/", $value['thumbnail']))) {				
 			$img_thumb         = '<img src="http://'.$host_img.'/'.$value['thumbnail'].'" width="28" height="28" />';
 			$img_thumb_cambia  = 'http://'.$host_img.'/'.$value['thumbnail'].'';
 			$img_sfondo_cambia = 'http://'.$host_img.'/'.$value['fanart'].'';
-		}else{		
+		} else {		
 			$img_thumb         = '<img src="img/DefaultAlbumCover.png" width="28" height="28" />';
 			$img_thumb_cambia  = 'core/img/DefaultAlbumCover.png';
 			$img_sfondo_cambia = 'css/img/video.jpg';
