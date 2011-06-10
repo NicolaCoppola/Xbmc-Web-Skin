@@ -13,6 +13,7 @@
 // Carico tutt i file php Richiesti 
 require('config_freamwork.php');
 require('json_call.php');
+global $json;
 ?>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -80,7 +81,7 @@ require ('../language/'.$lingua.'/'.$lingua.'.php');
 				$img_sfondo_cambia = 'css/img/video.jpg';
 		}
 		
-		if ( $_GET['Submit'] == "Cerca"){
+		if (isset($_GET['Submit']) && $_GET['Submit'] == "Cerca"){
 		
 			$ricerca = $_GET['ricerca'];
 			$ricerca2= ucfirst(strtolower($ricerca)); 
