@@ -1,7 +1,3 @@
-<iframe id="control" name="control" width="1" height="1" style="display:none">
-  <p>Your browser does not support iframes.</p>
-</iframe>
-
 <?php 
 
 /* ---------------------------------------------------------------
@@ -109,6 +105,48 @@ function statoplayer(){
 				
 			};
 			
+			// Funzioni Item play now
+			
+			function playnowAudio(){
+			
+				require('config_freamwork.php');
+				
+				$json = '{"jsonrpc": "2.0", "method": "AudioPlaylist.GetItems", "params": { "fields": ["title", "artist", "genre", "track", "duration", "year", "rating", "playcount" , "thumbnail" , "file" ] }, "id": 1}';
+				
+				$chiamata = curl_init();
+				curl_setopt($chiamata, CURLOPT_RETURNTRANSFER,true);
+				curl_setopt($chiamata, CURLOPT_POST          ,1);
+				curl_setopt($chiamata, CURLOPT_URL           ,$hostjsonrpc);
+				curl_setopt($chiamata, CURLOPT_USERPWD       ,"$username:$password");
+				curl_setopt($chiamata, CURLOPT_POSTFIELDS    ,$json);
+				$json = curl_exec($chiamata);
+				curl_close($chiamata);	
+				return $json;
+				
+				// id = movie
+				
+			};
+			
+			function playnowVideo(){
+			
+				require('config_freamwork.php');
+				
+				$json = '{"jsonrpc": "2.0", "method": "VideoPlaylist.GetItems", "params": { "fields": [ "studio", "genre", "director", "trailer", "tagline", "plot", "plotoutline", "title", "originaltitle", "lastplayed", "runtime", "year", "playcount", "rating", "thumbnail", "fanart" , "file"] }, "id": 1}';
+				
+				$chiamata = curl_init();
+				curl_setopt($chiamata, CURLOPT_RETURNTRANSFER,true);
+				curl_setopt($chiamata, CURLOPT_POST          ,1);
+				curl_setopt($chiamata, CURLOPT_URL           ,$hostjsonrpc);
+				curl_setopt($chiamata, CURLOPT_USERPWD       ,"$username:$password");
+				curl_setopt($chiamata, CURLOPT_POSTFIELDS    ,$json);
+				$json = curl_exec($chiamata);
+				curl_close($chiamata);	
+				return $json;
+				
+				// id = movie
+				
+			};
+			
 
 /* ---------------------------------------------------------------
 |
@@ -123,7 +161,7 @@ function film(){
 
 	require('config_freamwork.php');
 	
-	$json = '{"jsonrpc": "2.0", "method": "VideoLibrary.GetMovies", "params": { "limits": { "start": 0 }, "fields": [ "genre", "director", "trailer", "tagline", "plot", "plotoutline", "title", "originaltitle", "lastplayed", "runtime", "year", "playcount", "rating", "thumbnail", "fanart" , "file" ], "sort": { "method": "sorttitle", "ignorearticle": true } }, "id": 1}';
+	$json = '{"jsonrpc": "2.0", "method": "VideoLibrary.GetMovies", "params": { "limits": { "start": 0 }, "fields": [ "studio","genre", "director", "trailer", "tagline", "plot", "plotoutline", "title", "originaltitle", "lastplayed", "runtime", "year", "playcount", "rating", "thumbnail", "fanart" , "file" ], "sort": { "method": "sorttitle", "ignorearticle": true } }, "id": 1}';
 	
 	$chiamata = curl_init();
 	curl_setopt($chiamata, CURLOPT_RETURNTRANSFER,true);
