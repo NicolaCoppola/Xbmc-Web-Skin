@@ -1,4 +1,5 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<?php if(!extension_loaded('curl')){echo "<script>alert('cURL not found. Please make sure your web server is compatible with cURL and it is enabled.')</script>";} ?>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -22,31 +23,24 @@
 require('system/show_data.php');
 require('system/show_meteo.php');
 require('system/config_url.php');
-
+global $temperatura_img, $temperatura;
 
 // includo parte riguardante remote control
 
 if (file_exists('core/lingua_setting.php')) {
-
 	require('core/lingua_setting.php');
-	
-	}else{
-	
+}else{
 	$lingua = "English";
 	$filename     = 'core/lingua_setting.php';
 	$filecontenet = '<?php $lingua="'.$lingua.'"; ?>';
 
 	$fh = fopen($filename, 'w'); 
 	fwrite($fh, $filecontenet);	
+	fclose($fh);
 }
-
 require ('language/'.$lingua.'/'.$lingua.'.php');
-
 require('core/config_freamwork.php');
 require('core/telecomando.php');
-
-
-
 ?>
 <script>
 // script per chiudere le info
@@ -446,7 +440,7 @@ function Scrolliframe(tasto)
 <div id="xbmcremotesite">
 
 
- <!-- ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- inzio schermata menu -->
+ <!-- inzio schermata menu -->
 
 
 	<!-- start #logo -->

@@ -13,6 +13,7 @@
 // Carico tutt i file php Richiesti 
 require('config_freamwork.php');
 require('json_call.php');
+global $json;
 ?>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -67,41 +68,31 @@ require ('../language/'.$lingua.'/'.$lingua.'.php');
 		// vostro codice 
 		//echo '<li class="cat"><a href="stagioni_id_id.php?season='.$value['season'].'&episodes='.$_GET['season'].'">'.$value['label'].'</a></li>';
 		
-		if (preg_match("/^special/", $value['thumbnail']) or preg_match("/^images/", $value['thumbnail'])) {
-				
-				$img_thumb         = '<img src="http://'.$host_img.'/'.$value['thumbnail'].'" width="28" height="28" />';
-				$img_thumb_cambia  = 'http://'.$host_img.'/'.$value['thumbnail'].'';
-				$img_sfondo_cambia = 'http://'.$host_img.'/'.$value['fanart'].'';
-				
-			}else{
-				
-				$img_thumb         = '<img src="img/DefaultAlbumCover.png" width="28" height="28" />';
-				$img_thumb_cambia  = 'core/img/DefaultAlbumCover.png';
-				$img_sfondo_cambia = 'css/img/video.jpg';
+		if (isset($value['thumbnail']) && (preg_match("/^special/", $value['thumbnail']) or preg_match("/^images/", $value['thumbnail']))) {				
+			$img_thumb         = '<img src="http://'.$host_img.'/'.$value['thumbnail'].'" width="28" height="28" />';
+			$img_thumb_cambia  = 'http://'.$host_img.'/'.$value['thumbnail'].'';
+			$img_sfondo_cambia = 'http://'.$host_img.'/'.$value['fanart'].'';
+		} else {		
+			$img_thumb         = '<img src="img/DefaultAlbumCover.png" width="28" height="28" />';
+			$img_thumb_cambia  = 'core/img/DefaultAlbumCover.png';
+			$img_sfondo_cambia = 'css/img/video.jpg';
 		}
 		
-
-		echo ' 
-				<div id="info_file">
-					
-						<div id="title"   ><a href="stagioni_id_id.php?season='.$value['season'].'&episodes='.$_GET['season'].'&fanart='.$img_sfondo_cambia.'" onMouseOver="CambiaImmaginequadro(';
-						
-						echo "'$img_thumb_cambia','$img_sfondo_cambia'";
-						echo');" onmouseout="RipritinaImmaginequadro(';
-						echo "'css/img/xbmc.png'";
-						
-						echo');">&ensp;&ensp;&ensp; '.$value['label'].'</a></div> 
-						<div id="playlist"><a href="stagioni_id_id.php?season='.$value['season'].'&episodes='.$_GET['season'].'&fanart='.$img_sfondo_cambia.'"></a></div>
-						<div id="type"    ><a href="stagioni_id_id.php?season='.$value['season'].'&episodes='.$_GET['season'].'&fanart='.$img_sfondo_cambia.'">';
-						
-						echo "$img_thumb";
-						
-						echo '</a></div>
-						
-				</div>
-		';
-					
-		
+		$season = (isset($value['season']))?$value['season']:'';
+		echo '
+	 	<div id="info_file">	
+			<div id="title">
+				<a href="stagioni_id_id.php?season='.$season.'&episodes='.$_GET['season'].'&fanart='.$img_sfondo_cambia.'" 											onMouseOver="CambiaImmaginequadro("'.$img_thumb_cambia.','.$img_sfondo_cambia.'");" 
+					onmouseout="RipritinaImmaginequadro("css/img/xbmc.png");">&ensp;&ensp;&ensp; '.$value['label'].'
+				</a>
+			</div> 
+			<div id="playlist">
+				<a href="stagioni_id_id.php?season='.$season.'&episodes='.$_GET['season'].'&fanart='.$img_sfondo_cambia.'"></a>
+			</div>
+			<div id="type">
+				<a href="stagioni_id_id.php?season='.$season.'&episodes='.$_GET['season'].'&fanart='.$img_sfondo_cambia.'">'.$img_thumb.'</a>
+			</div>
+		</div>';
 	}
 	
 ?>

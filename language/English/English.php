@@ -74,28 +74,29 @@ $t_indietro             ="Back ..";
 		
 	$t_sfoglia_videos       ="Browse";
 	$t_cerca_videos  		="Search";
-	$t_film_videos   	    ="Film";
-	$t_stagioni_videos     	="Seasons TV";
-	$t_musica_videos 		="Music Video";
+	$t_film_videos   	    ="Movies";
+	$t_stagioni_videos     	="TV Shows";
+	$t_musica_videos 		="Music Videos";
 	$t_livetv_videos 		="Live TV";
 	$t_dvd_videos	 		="Play DVD ";
-	$t_blue_videos 			="Play Blue Ray";
+	$t_blue_videos 			="Play Blu-Ray";
 	
-		$t_cerca_video      ="Search Video";
-		$t_cerca_film       ="Search Film";
-		$t_cerca_serietv    ="Search TV Series";
-		$t_cerca_musicvideo ="Search Music Video";		
+		$t_cerca_video      ="Search Videos";
+		$t_cerca_film       ="Search Movies";
+		$t_cerca_serietv    ="Search TV Shows";
+		$t_cerca_musicvideo ="Search Music Videos";		
 	
 		//info Video 
 		$t_stagione_videos   ="Season";
 		$t_regista_videos  	 ="Director";
 		$t_genere_videos   	 ="Genre";
+		$t_anno_videos		 ="Year";
 		
 		
 		
 	
 	// menu System page section 
-	$t_sistem      			="Setting";
+	$t_sistem      			="Settings";
 	
 	$t_lingua_sistem        ="Language";
 	$t_host_sistem 		    ="Host Connection";
@@ -104,7 +105,7 @@ $t_indietro             ="Back ..";
 	$t_audio_sistem		    ="Audio";
 	$t_video_sistem   	    ="Video";
 	$t_skin_sistem    	    ="Skin";
-	$t_about_sistem		    ="About Author";
+	$t_about_sistem		    ="About the Author";
 
 
 

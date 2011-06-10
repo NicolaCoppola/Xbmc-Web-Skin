@@ -13,8 +13,8 @@
 // Carico tutt i file php Richiesti 
 require('config_freamwork.php');
 require('json_call.php');
+$error= 'no';
 ?>
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -25,35 +25,27 @@ require('json_call.php');
 	<script type="text/javascript" src="js/core.js"></script>
 </head>
 <body>
-
-<?php 
-
-include('function/scroll.php');
-
-?>
-
+<?php include('function/scroll.php'); ?>
 <div id="sfoglia_file_menu">
 	
 	
-	<div id="info_file">
-				
-					<div id="title"   >
-					<a href="system.php" 
+	<div id="info_file">				
+			<div id="title"   >
+				<a href="system.php" 
 					onMouseOver="window.parent.document.getElementById('img_cambia').src=('core/img/back.png');" 
-					onMouseOut="window.parent.document.getElementById('img_cambia').src=('core/img/xbmc.png');">&ensp;&ensp;&ensp; Setting 
+					onMouseOut="window.parent.document.getElementById('img_cambia').src=('core/img/xbmc.png');">&ensp;&ensp;&ensp; Settings
+				</a>
+			</div> 
 					
-					</a></div> 
-					
-					<div id="playlist"><a href="system.php"></a></div>
-					<div id="type"    ><a href="system.php"><img src="img/back.png" width="28" height="28"/></a></div>
-					
+			<div id="playlist"><a href="system.php"></a></div>
+			<div id="type"    ><a href="system.php"><img src="img/back.png" width="28" height="28"/></a></div>
 	</div>
 	
 
 	
 	<div id="info_file">
 			
-					<div id="title"   >&ensp;&ensp;&ensp;&ensp;&ensp;&ensp; Modifica Lingua</div> 
+					<div id="title"   >&ensp;&ensp;&ensp;&ensp;&ensp;&ensp; Change Language</div> 
 					<div id="playlist"></div>
 					<div id="type"    ></div>
 					
@@ -63,7 +55,7 @@ include('function/scroll.php');
 
 <?php
 
-if ($_GET['lingua'] == NULL){
+if (!isset($_GET['lingua'])){
 
 	if ( $handle = opendir ( '../language' )) { 
 	
@@ -86,12 +78,11 @@ if ($_GET['lingua'] == NULL){
 				}else{
 				
 					echo '<option value="'. $file.'">'. $file.'</option>';
-					
 				}
 			} 
 		
 		echo '</select>';
-		echo '&ensp;&ensp;&ensp;<input type="submit" name="Submit" value="Imposta" />
+		echo '&ensp;&ensp;&ensp;<input type="submit" name="Submit" value="Change" />
 		</form>';
 	
 		closedir ( $handle ); 
@@ -99,8 +90,7 @@ if ($_GET['lingua'] == NULL){
 
 }else{
 
-$lingua_write = $_GET['lingua'] ;
-
+$lingua_write = $_GET['lingua'];
 $filename     = 'lingua_setting.php';
 $filecontenet = '<?php $lingua="'.$lingua_write.'"; ?>';
 
@@ -135,26 +125,21 @@ $fh = fopen($filename, 'w');
 				</form>';
 		
 			closedir ( $handle ); 
-			} 
-	
+		} 
 	} 
-
-
-
 }
 
 
 if (file_exists('lingua_setting.php')) {
 		
 		include('lingua_setting.php');
-		
-		if ($_GET['lingua'] != NULL){
+		if (isset($_GET['lingua'])){
 			
 			if ($error != "yes"){
-			$label = "Lingua aggiornata con successo";
+			$label = "Language updated successfully: ";
 			$link  = "javascript:window.parent.location.reload()";
 			}else{
-			$label = "La invitiamo a riprovare , lingua in uso: ";
+			$label = "Please try again, language in use: ";
 			$link ="#";
 			}
 			
@@ -162,7 +147,8 @@ if (file_exists('lingua_setting.php')) {
 			
 		}else{
 		
-			$label = "Lingua in uso :";
+			$link ="#";		
+			$label = "Language in use: ";
 			
 		}
 		
@@ -177,24 +163,17 @@ if (file_exists('lingua_setting.php')) {
 						echo');" onmouseout="window.parent.document.getElementById(\'img_cambia\').src=(';
 						echo "'css/img/xbmc.png'";
 						
-						echo');">&ensp;&ensp;&ensp; '.$label.' </a></div> 
-						<div id="playlist"><a href="#"></a></div>
-						<div id="type"    ><a href="#">';
-						
-						echo "$img_thumb";
-						
-						echo '</a></div>
-						
+						echo');">&ensp;&ensp;&ensp; '.$label.$lingua.' </a></div> 
+						<div id="playlist">
+							<a href="#"></a>
+						</div>
+						<div id="type">
+							<a href="#">'.$img_thumb.'</a>
+						</div>
 				</div>
 		';
 }
-
-
-
 ?>
-
-
 </div>
-
 </body>
 </html>
