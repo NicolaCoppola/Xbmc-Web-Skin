@@ -23,7 +23,7 @@
 require('system/show_data.php');
 require('system/show_meteo.php');
 require('system/config_url.php');
-
+global $temperatura_img, $temperatura;
 
 // includo parte riguardante remote control
 
@@ -447,7 +447,7 @@ function Scrolliframe(tasto)
 <div id="xbmcremotesite">
 
 
- <!-- ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- inzio schermata menu -->
+ <!-- inzio schermata menu -->
 
 
 	<!-- start #logo -->
