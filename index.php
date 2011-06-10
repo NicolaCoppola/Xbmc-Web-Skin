@@ -28,26 +28,19 @@ global $temperatura_img, $temperatura;
 // includo parte riguardante remote control
 
 if (file_exists('core/lingua_setting.php')) {
-
 	require('core/lingua_setting.php');
-	
-	}else{
-	
+}else{
 	$lingua = "English";
 	$filename     = 'core/lingua_setting.php';
 	$filecontenet = '<?php $lingua="'.$lingua.'"; ?>';
 
 	$fh = fopen($filename, 'w'); 
 	fwrite($fh, $filecontenet);	
+	fclose($fh);
 }
-
 require ('language/'.$lingua.'/'.$lingua.'.php');
-
 require('core/config_freamwork.php');
 require('core/telecomando.php');
-
-
-
 ?>
 <script>
 // script per chiudere le info

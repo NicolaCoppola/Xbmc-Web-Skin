@@ -13,6 +13,7 @@
 // Carico tutt i file php Richiesti 
 require('config_freamwork.php');
 require('json_call.php');
+$error = 'no';
 ?>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -53,7 +54,7 @@ include('function/scroll.php');
 	
 	<div id="info_file">
 			
-					<div id="title"   >&ensp;&ensp;&ensp;&ensp;&ensp;&ensp; Modifica Host Remoto</div> 
+					<div id="title"   >&ensp;&ensp;&ensp;&ensp;&ensp;&ensp; Change Host Connection Details</div> 
 					<div id="playlist"></div>
 					<div id="type"    ></div>
 					
@@ -61,7 +62,7 @@ include('function/scroll.php');
 
 
 <?php
-if ($_GET['host_name'] == NULL){
+if (!isset($_GET['host_name'])){
 
 	if (file_exists('host_setting.php')) {
 	
@@ -75,7 +76,7 @@ if ($_GET['host_name'] == NULL){
 			
 					<div id="title"   >&ensp;&ensp;&ensp;&ensp;&ensp;&ensp; <input type="host_name" name="host_name" value="'.$host_name.'"/></div> 
 					<div id="playlist"></div>
-					<div id="type"    >Host Remoto</div>
+					<div id="type"    >XBMC IP</div>
 					
 		  </div>';
 		  
@@ -83,7 +84,7 @@ if ($_GET['host_name'] == NULL){
 			
 					<div id="title"   >&ensp;&ensp;&ensp;&ensp;&ensp;&ensp; <input type="host_name" name="host_port" value="'.$host_port.'"/></div> 
 					<div id="playlist"></div>
-					<div id="type"    >Porta d\'ascolto</div>
+					<div id="type"    >XBMC Port</div>
 					
 		  </div>';
 	
@@ -91,21 +92,21 @@ if ($_GET['host_name'] == NULL){
 			
 					<div id="title"   >&ensp;&ensp;&ensp;&ensp;&ensp;&ensp; <input type="host_name" name="host_user" value="'.$host_user.'"/></div> 
 					<div id="playlist"></div>
-					<div id="type"    >Utente</div>
+					<div id="type"    >USERNAME</div>
 					
 		  </div>';
 		  
 	echo '<div id="info_file">
 			
-					<div id="title"   >&ensp;&ensp;&ensp;&ensp;&ensp;&ensp; <input type="host_name" name="host_pass" value="'.$host_pass.'"/></div> 
+					<div id="title"   >&ensp;&ensp;&ensp;&ensp;&ensp;&ensp; <input type="password" name="host_pass" value="'.$host_pass.'"/></div> 
 					<div id="playlist"></div>
-					<div id="type"    >Password</div>
+					<div id="type"    >PASSWORD</div>
 					
 		  </div>';
 		  
 	echo '<div id="info_file">
 			
-					<div id="title"   >&ensp;&ensp;&ensp;&ensp;&ensp;&ensp; <input type="submit" name="Submit" value="Modifica" /></div> 
+					<div id="title"   >&ensp;&ensp;&ensp;&ensp;&ensp;&ensp; <input type="submit" name="Submit" value="Update" /></div> 
 					<div id="playlist"></div>
 					<div id="type"    ></div>
 					
@@ -201,10 +202,10 @@ if (file_exists('host_setting.php')) {
 		
 		include('host_setting.php');
 		
-		if ($_GET['host_name'] != NULL){
+		if (isset($_GET['host_name']) && $_GET['host_name'] != NULL){
 			
 			if ($error != "yes"){
-			$label = "Host aggiornato con successo";
+			$label = "Details successfully updated";
 			$link  = "javascript:window.parent.location.reload()";
 			}else{
 			$label = "La invitiamo a riprovare , Host in uso";
@@ -215,7 +216,8 @@ if (file_exists('host_setting.php')) {
 			
 		}else{
 		
-			$label = "Host Predefinito";
+			$link ="#";
+			$label = "Current host";
 			
 		}
 		
@@ -224,13 +226,13 @@ if (file_exists('host_setting.php')) {
 		echo ' 
 				<div id="info_file">
 					
-						<div id="title"   ><a href="'.$link.'" onMouseOver="window.parent.document.getElementById(\'img_cambia\').src=(';
+						<div id="title"><a href="'.$link.'" onMouseOver="window.parent.document.getElementById(\'img_cambia\').src=(';
 						
 						echo "'$img_thumb_cambia'";
 						echo');" onmouseout="window.parent.document.getElementById(\'img_cambia\').src=(';
 						echo "'css/img/xbmc.png'";
 						
-						echo');">&ensp;&ensp;&ensp; '.$label.' : '.$host_name.'</a></div> 
+						echo');">&ensp;&ensp;&ensp; '.$label.': '.$host_name.'</a></div> 
 						<div id="playlist"><a href="#"></a></div>
 						<div id="type"    ><a href="#">';
 						
