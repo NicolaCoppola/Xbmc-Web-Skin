@@ -77,19 +77,20 @@ require ('../language/'.$lingua.'/'.$lingua.'.php');
 			$img_thumb_cambia  = 'core/img/DefaultAlbumCover.png';
 			$img_sfondo_cambia = 'css/img/video.jpg';
 		}
-
+		
+		$season = (isset($value['season']))?$value['season']:'';
 		echo '
 	 	<div id="info_file">	
 			<div id="title">
-				<a href="stagioni_id_id.php?season='.$value['season'].'&episodes='.$_GET['season'].'&fanart='.$img_sfondo_cambia.'" 											onMouseOver="CambiaImmaginequadro("'.$img_thumb_cambia.','.$img_sfondo_cambia.'");" 
+				<a href="stagioni_id_id.php?season='.$season.'&episodes='.$_GET['season'].'&fanart='.$img_sfondo_cambia.'" 											onMouseOver="CambiaImmaginequadro("'.$img_thumb_cambia.','.$img_sfondo_cambia.'");" 
 					onmouseout="RipritinaImmaginequadro("css/img/xbmc.png");">&ensp;&ensp;&ensp; '.$value['label'].'
 				</a>
 			</div> 
 			<div id="playlist">
-				<a href="stagioni_id_id.php?season='.$value['season'].'&episodes='.$_GET['season'].'&fanart='.$img_sfondo_cambia.'"></a>
+				<a href="stagioni_id_id.php?season='.$season.'&episodes='.$_GET['season'].'&fanart='.$img_sfondo_cambia.'"></a>
 			</div>
 			<div id="type">
-				<a href="stagioni_id_id.php?season='.$value['season'].'&episodes='.$_GET['season'].'&fanart='.$img_sfondo_cambia.'">'.$img_thumb.'</a>
+				<a href="stagioni_id_id.php?season='.$season.'&episodes='.$_GET['season'].'&fanart='.$img_sfondo_cambia.'">'.$img_thumb.'</a>
 			</div>
 		</div>';
 	}
