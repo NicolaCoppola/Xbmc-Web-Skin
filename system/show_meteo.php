@@ -4,14 +4,12 @@
 include('core/config_freamwork.php');
 
 $path_meteo="http://$host_name:$host_port/xbmcCmds/xbmcHttp?command=GetSystemInfoByName(weather.location;weather.temperature;weather.conditions)";
-
-
 // 1 : imposto i dati per il curl della pagina che contiene i dati
 $curl_handle=curl_init();
 curl_setopt($curl_handle,CURLOPT_URL,$path_meteo);
-
-
-curl_setopt($curl_handle,CURLOPT_USERPWD,"$username:$password");
+if(!empty($username)&&!empty($password)){
+	curl_setopt($curl_handle,CURLOPT_USERPWD,"$username:$password");
+}
 curl_setopt($curl_handle,CURLOPT_CONNECTTIMEOUT,2);
 curl_setopt($curl_handle,CURLOPT_RETURNTRANSFER,1);
 
@@ -21,8 +19,6 @@ $risultato_curl = curl_exec($curl_handle);
 // 3 : Chiudi il download
 curl_close($curl_handle);
 
-
-
 $str1  = str_replace("<html>" , "" ,          $risultato_curl);
 $str2  = str_replace("</html>", "|",          $str1);
 // tolgo i marcatori per l'indice puntato con il marcatore
@@ -30,11 +26,9 @@ $str3  = str_replace("<li>"   , "|",          $str2);
 $str4  = str_replace("°C"     , "" ,          $str3);
 $str5  = str_replace(","      , "|" ,          $str4);
 
-
 // espolodo i valoro contenuti tra i marcatori in un array
 $array_meteo = explode('|', $str5);
 //echo '<pre>';print_r($array_meteo);echo '</pre>';
-$temperatura = '';
 $temperatura = (isset($array_meteo[3]))?'<li> '.$array_meteo[3].' C°</li>':'' ;
 $tempo_testo = (isset($array_meteo[4]))?$array_meteo[4]:'';
 
