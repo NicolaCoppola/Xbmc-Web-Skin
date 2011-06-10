@@ -412,200 +412,50 @@ Safari XBMC Remote : parte play info
 
 }
 
-#info_text {
-
-    position:relative;
-	float:left;
-	width:65%;
-	margin-left:10px;
-	margin-top:24px;
-	line-height:29px;
+#informazioni_play {
+	bottom:30px;
+	right:20px;
+	width:520px;
+	height:200px;
 	
-
+	position:fixed;	/* On older OS versions "position" and "z-index" must be defined, */
+	z-index:1;			/* it seems that recent webkit is less picky and works anyway. */
+	text-align:left;
+	overflow:hidden;
+	line-height:25px;
 }
 
-#info_text li{
-	text-align:right;
-	color:#FFFFFF;
-	list-style:none;
-	text-decoration:none;
+#image_play img{
+	width:100px;
+	height:auto;
+	right:420px;
+	bottom:13%;
 	
+	position:fixed;	/* On older OS versions "position" and "z-index" must be defined, */
+	z-index:1;			/* it seems that recent webkit is less picky and works anyway. */
+	text-align:left;
+	overflow:hidden;
+	border:0px solid #cccccc;
+	-webkit-background-clip:padding-box;
+	-webkit-box-sizing:border-box;
+	-webkit-border-radius:4px;
 }
 
-#info_text .riproduzione{
-	color:#0066FF;
-	font-size:20px;
-
-}
-
-#info_text .album{
-	color:#FFF;
-	font-size:12px;
-
-}
-
-#info_text .artista{
-	color:#FFF;
-	font-size:12px;
-
-}
-
-#info_text .canzone{
-	color:#FFF;
-	font-size:12px;
-   
-}
-
-#info_text .tempo{
-	color:#FFF;
+#info_play1 {
+	color:#CCCCCC;
+	margin-left:140px;
 	font-size:14px;
-
 }
 
-
-#info_image {
-
-	position:relative;
-	float:right;
-	margin-right:30px;
-	margin-top:35px;
-	
-
+#title_play {
+	color:#FFFFFF;
+	margin-left:140px;
+	font-size:22px;
 }
 
-#info_image img{
-	
-	text-align:center;
-	width:120px;
-	height:120px;
+#time_play , #time_play a{
+	font-size:14px;
+	color:#CCCCCC;
+	margin-left:140px;
 	text-decoration:none;
-	border:none;
-	outline:none;
-	
-
-}
-li.Filename  {
-display:none;
-
-}
-
-li.Studio  {
-display:none;
-
-}
-
-li.Director  {
-display:none;
-
-}
-
-li.Writer {
-display:none;
-
-}
-
-li.Plotoutline {
-display:none;
-
-}
-
-li.Plot {
-display:none;
-
-}
-
-li.Rating {
-
-display:none;
-
-}
-
-li.start_file {
-display:none;
-
-}
-
-li.PlayStatus {
-display:none;
-
-}
-
-li.SongNo {
-display:none;
-
-}
-
-li.Type {
-display:none;
-
-}
-
-li.Title {
-display:none;
-
-}
-
-li.Track {
-display:none;
-
-}
-
-li.Genre {
-display:none;
-
-}
-
-li.Year {
-display:none;
-
-}
-
-li.URL {
-display:none;
-
-}
-
-li.Lyrics {
-display:none;
-
-}
-
-li.Bitrate {
-display:none;
-
-}
-
-li.Samplerate {
-display:none;
-
-}
-
-li.Thumb {
-display:none;
-
-}
-
-li.Time {
-display:none;
-
-}
-
-li.Duration {
-display:none;
-
-}
-
-li.Percentage {
-display:none;
-
-}
-
-li.Changed {
-display:none;
-
-}
-
-li.File_size {
-display:none;
-
 }
